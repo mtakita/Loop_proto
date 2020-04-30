@@ -5,6 +5,8 @@ using UnityEngine;
 public class Node
 {
     int nodeIndex;
+    int nodeValue;
+
     Vector2 localPos;
     GameObject nodePrefab;
 
@@ -21,9 +23,10 @@ public class Node
     enum_status status;
 
 
-    public Node(int newNodeIndex, Vector2 initLocalPos, SpawnInfo inSpawnInfo )
+    public Node(int inNewNodeIndex, int inNodeValue, Vector2 initLocalPos, SpawnInfo inSpawnInfo )
     {
-        nodeIndex = newNodeIndex;
+        nodeIndex = inNewNodeIndex;
+        nodeValue = inNodeValue;
         localPos = initLocalPos;
 
         spawnInfo = inSpawnInfo;
@@ -31,9 +34,10 @@ public class Node
         status = enum_status.pre_spawn;
     }
 
-    public Node( int newNodeIndex, Vector2 initLocalPos )
+    public Node( int newNodeIndex, int inNodeValue, Vector2 initLocalPos )
     {
         nodeIndex = newNodeIndex;
+        nodeValue = inNodeValue;
         localPos = initLocalPos;
 
         status = enum_status.idle;
@@ -140,5 +144,10 @@ public class Node
     void Update()
     {
         
+    }
+
+    public int getNodeValue()
+    {
+        return nodeValue;
     }
 }

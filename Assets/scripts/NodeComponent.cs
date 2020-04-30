@@ -281,7 +281,7 @@ public class NodeComponent : MonoBehaviour
         // create new one.
         Node newNode = loop.GetNode(newNodeIndex);
         Vector2 pos = new Vector2(newNode.GetXPos(), newNode.GetYPos());
-        GameObject nodePrefab = loopComponent.CreateNode(pos, newNodeIndex);
+        GameObject nodePrefab = loopComponent.CreateNode(pos, newNodeIndex, newNode.getNodeValue() );
         newNode.SetNodePrefab(nodePrefab);
 
         // delete disappear edges.

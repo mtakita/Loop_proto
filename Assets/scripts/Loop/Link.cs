@@ -2,6 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum type_loop
+{
+    one,    // simple 2 nodes and an edge.
+    two,    // perfect triangle.
+    three,  // triangle missing one edge.
+    four,   // one node and tree edges, each for the other three node.
+    five,   // rectangle.
+    six,    // rectangle and one edge in the middle.
+    random  // renerate a loop from random number.
+};
+
+
 public class Link
 {
     int[,] nodesMatrix;

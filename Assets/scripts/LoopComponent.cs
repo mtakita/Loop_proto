@@ -5,7 +5,7 @@ using UnityEngine;
 public class LoopComponent : MonoBehaviour
 {
     // this must be initialized after instantiated.
-    public type_loop typeLoop;
+//    public type_loop typeLoop;
     public GameObject nodePrefabNumber1;
     public GameObject nodePrefabNumber2;
     public GameObject nodePrefabNumber3;
@@ -35,12 +35,14 @@ public class LoopComponent : MonoBehaviour
         nodes = new List<GameObject>();
         edges = new List<GameObject>();
 
-        loop = new Loop(typeLoop);
-        loop.IterateNode(AddNode);
-        loop.IterateEdge(AddEdge);
+        loop = new Loop();
+
+//        loop = new Loop(typeLoop);
+//        loop.IterateNode(AddNode);
+//        loop.IterateEdge(AddEdge);
 
     }
-
+/*
     public void AddEdgseNodesOne()
     {
         List<Node> addedNode = new List<Node>();
@@ -101,7 +103,7 @@ public class LoopComponent : MonoBehaviour
         loop.IterateNode(addedNode, AddNode);
         loop.IterateEdge(addedEdge, AddEdge);
     }
-
+*/
     public GameObject AddEdge(float x, float y, int rightNodeIndex, int leftNodeIndex, List<Node> inNodes )
     {
         GameObject edge;
@@ -283,14 +285,26 @@ public class LoopComponent : MonoBehaviour
     {
     }
 
-    public GameObject CreateNode(Vector2 inPos, int inNodeIndex)
+    public GameObject CreateNode(Vector2 inPos, int inNodeIndex, int inNodeValue )
     {
+        GameObject[] nodePrefabs = new GameObject[9] {
+            nodePrefabNumber1,
+            nodePrefabNumber2,
+            nodePrefabNumber3,
+            nodePrefabNumber4,
+            nodePrefabNumber5,
+            nodePrefabNumber6,
+            nodePrefabNumber7,
+            nodePrefabNumber8,
+            nodePrefabNumber9
+        };
+
         GameObject node;
         Transform tr;
         NodeComponent nodeComponent;
 
-        node = Instantiate(nodePrefabNumber1, new Vector3(inPos.x, inPos.y, 0.0f), Quaternion.identity);
-
+        node = Instantiate(nodePrefabs[inNodeValue-1], new Vector3(inPos.x, inPos.y, 0.0f), Quaternion.identity);
+    
         nodes.Add(node);
         tr = node.GetComponent<Transform>();
         tr.position = new Vector3(inPos.x, inPos.y, 0.0f);
@@ -337,6 +351,36 @@ public class LoopComponent : MonoBehaviour
         List<Node> addedNode = new List<Node>();
         List<Edge> addedEdge = new List<Edge>();
         loop.Spawn3Node2Edge(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+    public void Spawn4Node4Edge(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn4Node4Edge(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+    public void Spawn4Node3Edge(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn4Node3Edge(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+    public void Spawn4Node5Edge(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn4Node5Edge(addedNode, addedEdge, inSpawnInfo);
 
         loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
         loop.IterateEdge(addedEdge, AddEdge);
