@@ -6,6 +6,7 @@ public class LoopComponent : MonoBehaviour
 {
     // this must be initialized after instantiated.
 //    public type_loop typeLoop;
+    public GameObject nodePrefabNumber0;
     public GameObject nodePrefabNumber1;
     public GameObject nodePrefabNumber2;
     public GameObject nodePrefabNumber3;
@@ -287,7 +288,8 @@ public class LoopComponent : MonoBehaviour
 
     public GameObject CreateNode(Vector2 inPos, int inNodeIndex, int inNodeValue )
     {
-        GameObject[] nodePrefabs = new GameObject[9] {
+        GameObject[] nodePrefabs = new GameObject[10] {
+            nodePrefabNumber0,
             nodePrefabNumber1,
             nodePrefabNumber2,
             nodePrefabNumber3,
@@ -303,7 +305,7 @@ public class LoopComponent : MonoBehaviour
         Transform tr;
         NodeComponent nodeComponent;
 
-        node = Instantiate(nodePrefabs[inNodeValue-1], new Vector3(inPos.x, inPos.y, 0.0f), Quaternion.identity);
+        node = Instantiate(nodePrefabs[inNodeValue], new Vector3(inPos.x, inPos.y, 0.0f), Quaternion.identity);
     
         nodes.Add(node);
         tr = node.GetComponent<Transform>();

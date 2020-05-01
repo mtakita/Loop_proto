@@ -1056,7 +1056,7 @@ public class Loop
         int newNodeValue = nodeValue1st + nodeValue2nd;
         if( newNodeValue > 9)
         {
-            newNodeValue -= 9;
+            newNodeValue -= 10;
         }
 
         newNodes.Add(new Node(tmpNewNumOfNodes, newNodeValue, inNewPos));
