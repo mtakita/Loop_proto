@@ -17,6 +17,12 @@ public class NodeComponent : MonoBehaviour
 
     bool invalidatedPositionFlag;
 
+    //
+    // debug.
+    //
+
+    bool onetimeFlg;
+
     public void SetLoop( Loop inLoop)
     {
         loop = inLoop;
@@ -43,6 +49,8 @@ public class NodeComponent : MonoBehaviour
         loopComponent = loopGameObject.GetComponent<LoopComponent>();
 
         invalidatedPositionFlag = false;
+
+        onetimeFlg = false;
     }
 
     public void InvalidateNodeComponentPosition()
@@ -111,12 +119,26 @@ public class NodeComponent : MonoBehaviour
 
         loop.UpdateNodePosition(transPos, nodeIndex );
         loop.IterateEdge(nodeIndex);
+
+
+        //
+        // search test.
+        //
+
+        if( onetimeFlg == true)
+        {
+            OrderedAdjacent search = new OrderedAdjacent(loop.edges, loop.nodes, loop.numOfNodes );
+            search.findPath(loop.nodes[nodeIndex]);
+            onetimeFlg = false;
+        }
     }
 
     void OnMouseDown()
     {
         mouseDownFlg = true;
         offset = transform.position - Camera.main.ScreenToWorldPoint( Input.mousePosition );
+
+        onetimeFlg = true;
     }
 
     private void OnMouseUp()

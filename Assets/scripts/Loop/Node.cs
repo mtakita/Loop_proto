@@ -12,6 +12,11 @@ public class Node
 
     SpawnInfo spawnInfo;
 
+    //
+    // work variables for path finding.
+    //
+    int parentNodeIndex;
+    float cost;
     
     public enum enum_status
     {
@@ -149,5 +154,25 @@ public class Node
     public int getNodeValue()
     {
         return nodeValue;
+    }
+
+    public int GetParentNodeIndex()
+    {
+        return parentNodeIndex;
+    }
+
+    public void SetParentNodeIndex( int inParentNodeIndex)
+    {
+        parentNodeIndex = inParentNodeIndex;
+    }
+
+    public float GetCost()
+    {
+        return cost;
+    }
+
+    public void SetCost(float inCost )
+    {
+        cost = inCost;
     }
 }
