@@ -54,11 +54,17 @@ public class OrderedAdjacent
                 foreach (int successorNode in successorNodeIndecies)
                 {
                     Node currentNode = nodes[currentNodeIndex];
-                    int currentNodeValue = currentNode.getNodeValue();
+                    type_node_value currentNodeValue = currentNode.getNodeValue();
 
                     Node tempNode = nodes[successorNode];
-                    int tempNodeValue = tempNode.getNodeValue();
+                    type_node_value tempNodeValue = tempNode.getNodeValue();
 
+                    // both must be numerial nodes.
+                    if (currentNodeValue == type_node_value.type_node_value_empty || 
+                        tempNodeValue == type_node_value.type_node_value_empty) {
+                        continue;
+                    }
+                    
                     if (tempNodeValue - currentNodeValue == 1)
                     {
                         //
@@ -131,7 +137,7 @@ public class OrderedAdjacent
         for( int pathIndex = 0; pathIndex < pathLength; pathIndex++)
         {
             int nodeIndex = inPath[pathIndex];
-            int nodeValue = nodes[nodeIndex].getNodeValue();
+            type_node_value nodeValue = nodes[nodeIndex].getNodeValue();
             pathStr = pathStr + "->" + nodeValue;
         }
 

@@ -16,6 +16,7 @@ public class LoopComponent : MonoBehaviour
     public GameObject nodePrefabNumber7;
     public GameObject nodePrefabNumber8;
     public GameObject nodePrefabNumber9;
+    public GameObject nodePrefabNumberEmpty;
 
     public GameObject edgePrefab;
 
@@ -286,9 +287,10 @@ public class LoopComponent : MonoBehaviour
     {
     }
 
-    public GameObject CreateNode(Vector2 inPos, int inNodeIndex, int inNodeValue )
+    public GameObject CreateNode(Vector2 inPos, int inNodeIndex, type_node_value inNodeValue )
     {
-        GameObject[] nodePrefabs = new GameObject[10] {
+        /*
+        GameObject[] nodePrefabs = new GameObject[] {
             nodePrefabNumber0,
             nodePrefabNumber1,
             nodePrefabNumber2,
@@ -298,14 +300,53 @@ public class LoopComponent : MonoBehaviour
             nodePrefabNumber6,
             nodePrefabNumber7,
             nodePrefabNumber8,
-            nodePrefabNumber9
+            nodePrefabNumber9,
+            nodePrefabNumberEmpty
         };
-
+*/
         GameObject node;
         Transform tr;
         NodeComponent nodeComponent;
 
-        node = Instantiate(nodePrefabs[inNodeValue], new Vector3(inPos.x, inPos.y, 0.0f), Quaternion.identity);
+        GameObject selectPreFab = null;
+        switch( inNodeValue)
+        {
+            case type_node_value.type_node_value_0:
+                selectPreFab = nodePrefabNumber0;
+                break;
+            case type_node_value.type_node_value_1:
+                selectPreFab = nodePrefabNumber1;
+                break;
+            case type_node_value.type_node_value_2:
+                selectPreFab = nodePrefabNumber2;
+                break;
+            case type_node_value.type_node_value_3:
+                selectPreFab = nodePrefabNumber3;
+                break;
+            case type_node_value.type_node_value_4:
+                selectPreFab = nodePrefabNumber4;
+                break;
+            case type_node_value.type_node_value_5:
+                selectPreFab = nodePrefabNumber5;
+                break;
+            case type_node_value.type_node_value_6:
+                selectPreFab = nodePrefabNumber6;
+                break;
+            case type_node_value.type_node_value_7:
+                selectPreFab = nodePrefabNumber7;
+                break;
+            case type_node_value.type_node_value_8:
+                selectPreFab = nodePrefabNumber8;
+                break;
+            case type_node_value.type_node_value_9:
+                selectPreFab = nodePrefabNumber9;
+                break;
+            case type_node_value.type_node_value_empty:
+                selectPreFab = nodePrefabNumberEmpty;
+                break;
+        }
+
+        node = Instantiate(selectPreFab, new Vector3(inPos.x, inPos.y, 0.0f), Quaternion.identity);
     
         nodes.Add(node);
         tr = node.GetComponent<Transform>();
@@ -388,7 +429,118 @@ public class LoopComponent : MonoBehaviour
         loop.IterateEdge(addedEdge, AddEdge);
     }
 
-    public GameObject SpawnNode(float x, float y, int number, int inNodeIndex, SpawnInfo inSpawnInfo )
+    public void Spawn4Node6Edge2Occupy(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn4Node6Edge2Occupy(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+    public void Spawn4Node4Edge2Occupy(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn4Node4Edge2Occupy(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+    public void Spawn4Node3Edge3Occupy(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn4Node3Edge3Occupy(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+    public void Spawn4Node3Edge2Occupy(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn4Node3Edge2Occupy(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+    public void Spawn4Node3Edge2Occupy1(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn4Node3Edge2Occupy1(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+    public void Spawn4Node3Edge2Occupy2(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn4Node3Edge2Occupy2(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+    public void Spawn3Node2Edge2Occupy(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn3Node2Edge2Occupy(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+    public void Spawn3Node2Edge1Occupy(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn3Node2Edge1Occupy(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+    public void Spawn3Node3Edge2Occupy(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn3Node3Edge2Occupy(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+    public void Spawn3Node3Edge1Occupy(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn3Node3Edge1Occupy(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+    public void Spawn2Node1Edge1Occupy(SpawnInfo inSpawnInfo)
+    {
+        List<Node> addedNode = new List<Node>();
+        List<Edge> addedEdge = new List<Edge>();
+        loop.Spawn2Node1Edge1Occupy(addedNode, addedEdge, inSpawnInfo);
+
+        loop.IterateNodeSpawn(addedNode, SpawnNode, inSpawnInfo);
+        loop.IterateEdge(addedEdge, AddEdge);
+    }
+
+
+    public GameObject SpawnNode(float x, float y, type_node_value number, int inNodeIndex, SpawnInfo inSpawnInfo )
     {
         GameObject node;
         Transform tr;
@@ -397,7 +549,7 @@ public class LoopComponent : MonoBehaviour
         switch (number)
         {
 
-            case 1:
+            case type_node_value.type_node_value_1:
                 node = Instantiate(nodePrefabNumber1, new Vector3(x, y, 0.0f), Quaternion.identity);
 
                 nodes.Add(node);
@@ -413,7 +565,7 @@ public class LoopComponent : MonoBehaviour
 
                 return node;
 
-            case 2:
+            case type_node_value.type_node_value_2:
                 node = Instantiate(nodePrefabNumber2, new Vector3(x, y, 0.0f), Quaternion.identity);
 
                 nodes.Add(node);
@@ -429,7 +581,7 @@ public class LoopComponent : MonoBehaviour
 
                 return node;
 
-            case 3:
+            case type_node_value.type_node_value_3:
                 node = Instantiate(nodePrefabNumber3, new Vector3(x, y, 0.0f), Quaternion.identity);
 
                 nodes.Add(node);
@@ -445,7 +597,7 @@ public class LoopComponent : MonoBehaviour
 
                 return node;
 
-            case 4:
+            case type_node_value.type_node_value_4:
                 node = Instantiate(nodePrefabNumber4, new Vector3(x, y, 0.0f), Quaternion.identity);
 
                 nodes.Add(node);
@@ -461,7 +613,7 @@ public class LoopComponent : MonoBehaviour
 
                 return node;
 
-            case 5:
+            case type_node_value.type_node_value_5:
                 node = Instantiate(nodePrefabNumber5, new Vector3(x, y, 0.0f), Quaternion.identity);
 
                 nodes.Add(node);
@@ -477,7 +629,7 @@ public class LoopComponent : MonoBehaviour
 
                 return node;
 
-            case 6:
+            case type_node_value.type_node_value_6:
                 node = Instantiate(nodePrefabNumber6, new Vector3(x, y, 0.0f), Quaternion.identity);
 
                 nodes.Add(node);
@@ -493,7 +645,7 @@ public class LoopComponent : MonoBehaviour
 
                 return node;
 
-            case 7:
+            case type_node_value.type_node_value_7:
                 node = Instantiate(nodePrefabNumber7, new Vector3(x, y, 0.0f), Quaternion.identity);
 
                 nodes.Add(node);
@@ -509,7 +661,7 @@ public class LoopComponent : MonoBehaviour
 
                 return node;
 
-            case 8:
+            case type_node_value.type_node_value_8:
                 node = Instantiate(nodePrefabNumber8, new Vector3(x, y, 0.0f), Quaternion.identity);
 
                 nodes.Add(node);
@@ -525,7 +677,7 @@ public class LoopComponent : MonoBehaviour
 
                 return node;
 
-            case 9:
+            case type_node_value.type_node_value_9:
                 node = Instantiate(nodePrefabNumber9, new Vector3(x, y, 0.0f), Quaternion.identity);
 
                 nodes.Add(node);
@@ -541,6 +693,21 @@ public class LoopComponent : MonoBehaviour
 
                 return node;
 
+            case type_node_value.type_node_value_empty:
+                node = Instantiate(nodePrefabNumberEmpty, new Vector3(x, y, 0.0f), Quaternion.identity);
+
+                nodes.Add(node);
+                tr = node.GetComponent<Transform>();
+                tr.position = new Vector3(x, y, 0.0f);
+                //                tr.transform.parent = this.transform;
+
+                nodeComp = node.GetComponent<NodeComponent>();
+                nodeComp.SetNodeIndex(inNodeIndex);
+                nodeComp.SetLoop(loop);
+
+                inSpawnInfo.AddNodeIndex(inNodeIndex);
+
+                return node;
         }
 
         return null;

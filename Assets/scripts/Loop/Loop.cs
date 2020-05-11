@@ -14,7 +14,7 @@ public class Loop
     public int numOfDimension;
     Link link;
 
-    public delegate GameObject SpawnNode(float x, float y, int number, int nodeIndex, SpawnInfo inSpawnInfo );
+    public delegate GameObject SpawnNode(float x, float y, type_node_value number, int nodeIndex, SpawnInfo inSpawnInfo );
     public delegate GameObject AddNode(float x, float y, int number,int nodeIndex );
     public delegate GameObject AddEdge(float x, float y, int rightNodeIndex, int leftNodeIndex, List<Node> nodes);
     public delegate void UpdateEdge( float x, float y, int rightNodeIndex, int leftNodeIndex, List<Node> inNodes, GameObject edgePrefab);
@@ -445,6 +445,357 @@ public class Loop
 
     }
 
+    void AddEdgesSpawn4Node6Edge2Occupy(List<Edge> outAddedEdge)
+    {
+        Edge[,] newEdges = new Edge[numOfNodes, numOfNodes];
+
+        // copy all edges present in the previous edges.
+        for (int row = 0; row < numOfNodes - 4; row++)
+        {
+            for (int column = 0; column < numOfNodes - 4; column++)
+            {
+                newEdges[row, column] = edges[row, column];
+
+            }
+        }
+
+        Edge newEdge1 = new Edge(numOfNodes - 4, numOfNodes - 3);
+        newEdges[numOfNodes - 4, numOfNodes - 3] = newEdge1;
+        Edge newEdge2 = new Edge(numOfNodes - 4, numOfNodes - 2);
+        newEdges[numOfNodes - 4, numOfNodes - 2] = newEdge2;
+        Edge newEdge3 = new Edge(numOfNodes - 4, numOfNodes - 1);
+        newEdges[numOfNodes - 4, numOfNodes - 1] = newEdge3;
+        Edge newEdge4 = new Edge(numOfNodes - 3, numOfNodes - 2);
+        newEdges[numOfNodes - 3, numOfNodes - 2] = newEdge4;
+        Edge newEdge5 = new Edge(numOfNodes - 3, numOfNodes - 1);
+        newEdges[numOfNodes - 3, numOfNodes - 1] = newEdge5;
+        Edge newEdge6 = new Edge(numOfNodes - 2, numOfNodes - 1);
+        newEdges[numOfNodes - 2, numOfNodes - 1] = newEdge6;
+
+        numOfDimension += 4;
+
+        outAddedEdge.Add(newEdge1);
+        outAddedEdge.Add(newEdge2);
+        outAddedEdge.Add(newEdge3);
+        outAddedEdge.Add(newEdge4);
+        outAddedEdge.Add(newEdge5);
+        outAddedEdge.Add(newEdge6);
+
+        // replacing with new edges.
+        edges = newEdges;
+
+    }
+
+    void AddEdgesSpawn4Node4Edge2Occupy(List<Edge> outAddedEdge)
+    {
+        Edge[,] newEdges = new Edge[numOfNodes, numOfNodes];
+
+        // copy all edges present in the previous edges.
+        for (int row = 0; row < numOfNodes - 4; row++)
+        {
+            for (int column = 0; column < numOfNodes - 4; column++)
+            {
+                newEdges[row, column] = edges[row, column];
+
+            }
+        }
+
+        Edge newEdge1 = new Edge(numOfNodes - 4, numOfNodes - 3);
+        newEdges[numOfNodes - 4, numOfNodes - 3] = newEdge1;
+        Edge newEdge2 = new Edge(numOfNodes - 4, numOfNodes - 1);
+        newEdges[numOfNodes - 4, numOfNodes - 1] = newEdge2;
+        Edge newEdge3 = new Edge(numOfNodes - 3, numOfNodes - 2);
+        newEdges[numOfNodes - 3, numOfNodes - 2] = newEdge3;
+        Edge newEdge4 = new Edge(numOfNodes - 2, numOfNodes - 1);
+        newEdges[numOfNodes - 2, numOfNodes - 1] = newEdge4;
+
+        numOfDimension += 4;
+
+        outAddedEdge.Add(newEdge1);
+        outAddedEdge.Add(newEdge2);
+        outAddedEdge.Add(newEdge3);
+        outAddedEdge.Add(newEdge4);
+
+        // replacing with new edges.
+        edges = newEdges;
+
+    }
+
+    void AddEdgesSpawn4Node3Edge3Occupy(List<Edge> outAddedEdge)
+    {
+        Edge[,] newEdges = new Edge[numOfNodes, numOfNodes];
+
+        // copy all edges present in the previous edges.
+        for (int row = 0; row < numOfNodes - 4; row++)
+        {
+            for (int column = 0; column < numOfNodes - 4; column++)
+            {
+                newEdges[row, column] = edges[row, column];
+
+            }
+        }
+
+        Edge newEdge1 = new Edge(numOfNodes - 4, numOfNodes - 3);
+        newEdges[numOfNodes - 4, numOfNodes - 3] = newEdge1;
+        Edge newEdge2 = new Edge(numOfNodes - 3, numOfNodes - 2);
+        newEdges[numOfNodes - 3, numOfNodes - 2] = newEdge2;
+        Edge newEdge3 = new Edge(numOfNodes - 3, numOfNodes - 1);
+        newEdges[numOfNodes - 3, numOfNodes - 1] = newEdge3;
+
+        numOfDimension += 4;
+
+        outAddedEdge.Add(newEdge1);
+        outAddedEdge.Add(newEdge2);
+        outAddedEdge.Add(newEdge3);
+
+        // replacing with new edges.
+        edges = newEdges;
+
+    }
+
+    void AddEdgesSpawn4Node3Edge2Occupy(List<Edge> outAddedEdge)
+    {
+        Edge[,] newEdges = new Edge[numOfNodes, numOfNodes];
+
+        // copy all edges present in the previous edges.
+        for (int row = 0; row < numOfNodes - 4; row++)
+        {
+            for (int column = 0; column < numOfNodes - 4; column++)
+            {
+                newEdges[row, column] = edges[row, column];
+
+            }
+        }
+
+        Edge newEdge1 = new Edge(numOfNodes - 4, numOfNodes - 3);
+        newEdges[numOfNodes - 4, numOfNodes - 3] = newEdge1;
+        Edge newEdge2 = new Edge(numOfNodes - 4, numOfNodes - 2);
+        newEdges[numOfNodes - 4, numOfNodes - 2] = newEdge2;
+        Edge newEdge3 = new Edge(numOfNodes - 4, numOfNodes - 1);
+        newEdges[numOfNodes - 4, numOfNodes - 1] = newEdge3;
+
+        numOfDimension += 4;
+
+        outAddedEdge.Add(newEdge1);
+        outAddedEdge.Add(newEdge2);
+        outAddedEdge.Add(newEdge3);
+
+        // replacing with new edges.
+        edges = newEdges;
+
+    }
+
+    void AddEdgesSpawn4Node3Edge2Occupy1(List<Edge> outAddedEdge)
+    {
+        Edge[,] newEdges = new Edge[numOfNodes, numOfNodes];
+
+        // copy all edges present in the previous edges.
+        for (int row = 0; row < numOfNodes - 4; row++)
+        {
+            for (int column = 0; column < numOfNodes - 4; column++)
+            {
+                newEdges[row, column] = edges[row, column];
+
+            }
+        }
+
+        Edge newEdge1 = new Edge(numOfNodes - 4, numOfNodes - 3);
+        newEdges[numOfNodes - 4, numOfNodes - 3] = newEdge1;
+        Edge newEdge2 = new Edge(numOfNodes - 3, numOfNodes - 1);
+        newEdges[numOfNodes - 3, numOfNodes - 1] = newEdge2;
+        Edge newEdge3 = new Edge(numOfNodes - 2, numOfNodes - 1);
+        newEdges[numOfNodes - 2, numOfNodes - 1] = newEdge3;
+
+        numOfDimension += 4;
+
+        outAddedEdge.Add(newEdge1);
+        outAddedEdge.Add(newEdge2);
+        outAddedEdge.Add(newEdge3);
+
+        // replacing with new edges.
+        edges = newEdges;
+
+    }
+
+    void AddEdgesSpawn4Node3Edge2Occupy2(List<Edge> outAddedEdge)
+    {
+        Edge[,] newEdges = new Edge[numOfNodes, numOfNodes];
+
+        // copy all edges present in the previous edges.
+        for (int row = 0; row < numOfNodes - 4; row++)
+        {
+            for (int column = 0; column < numOfNodes - 4; column++)
+            {
+                newEdges[row, column] = edges[row, column];
+
+            }
+        }
+
+        Edge newEdge1 = new Edge(numOfNodes - 4, numOfNodes - 1);
+        newEdges[numOfNodes - 4, numOfNodes - 1] = newEdge1;
+        Edge newEdge2 = new Edge(numOfNodes - 3, numOfNodes - 2);
+        newEdges[numOfNodes - 3, numOfNodes - 2] = newEdge2;
+        Edge newEdge3 = new Edge(numOfNodes - 3, numOfNodes - 1);
+        newEdges[numOfNodes - 3, numOfNodes - 1] = newEdge3;
+
+        numOfDimension += 4;
+
+        outAddedEdge.Add(newEdge1);
+        outAddedEdge.Add(newEdge2);
+        outAddedEdge.Add(newEdge3);
+
+        // replacing with new edges.
+        edges = newEdges;
+
+    }
+
+    void AddEdgesSpawn3Node2Edge2Occupy(List<Edge> outAddedEdge)
+    {
+        Edge[,] newEdges = new Edge[numOfNodes, numOfNodes];
+
+        // copy all edges present in the previous edges.
+        for (int row = 0; row < numOfNodes - 3; row++)
+        {
+            for (int column = 0; column < numOfNodes - 3; column++)
+            {
+                newEdges[row, column] = edges[row, column];
+
+            }
+        }
+
+        Edge newEdge1 = new Edge(numOfNodes - 3, numOfNodes - 1);
+        newEdges[numOfNodes - 3, numOfNodes - 1] = newEdge1;
+        Edge newEdge2 = new Edge(numOfNodes - 2, numOfNodes - 1);
+        newEdges[numOfNodes - 2, numOfNodes - 1] = newEdge2;
+
+        numOfDimension += 3;
+
+        outAddedEdge.Add(newEdge1);
+        outAddedEdge.Add(newEdge2);
+
+        // replacing with new edges.
+        edges = newEdges;
+
+    }
+
+    void AddEdgesSpawn3Node2Edge1Occupy(List<Edge> outAddedEdge)
+    {
+        Edge[,] newEdges = new Edge[numOfNodes, numOfNodes];
+
+        // copy all edges present in the previous edges.
+        for (int row = 0; row < numOfNodes - 3; row++)
+        {
+            for (int column = 0; column < numOfNodes - 3; column++)
+            {
+                newEdges[row, column] = edges[row, column];
+
+            }
+        }
+
+        Edge newEdge1 = new Edge(numOfNodes - 3, numOfNodes - 2);
+        newEdges[numOfNodes - 3, numOfNodes - 2] = newEdge1;
+        Edge newEdge2 = new Edge(numOfNodes - 3, numOfNodes - 1);
+        newEdges[numOfNodes - 3, numOfNodes - 1] = newEdge2;
+
+        numOfDimension += 3;
+
+        outAddedEdge.Add(newEdge1);
+        outAddedEdge.Add(newEdge2);
+
+        // replacing with new edges.
+        edges = newEdges;
+
+    }
+
+    void AddEdgesSpawn3Node3Edge2Occupy(List<Edge> outAddedEdge)
+    {
+        Edge[,] newEdges = new Edge[numOfNodes, numOfNodes];
+
+        // copy all edges present in the previous edges.
+        for (int row = 0; row < numOfNodes - 3; row++)
+        {
+            for (int column = 0; column < numOfNodes - 3; column++)
+            {
+                newEdges[row, column] = edges[row, column];
+
+            }
+        }
+
+        Edge newEdge1 = new Edge(numOfNodes - 3, numOfNodes - 2);
+        newEdges[numOfNodes - 3, numOfNodes - 2] = newEdge1;
+        Edge newEdge2 = new Edge(numOfNodes - 3, numOfNodes - 1);
+        newEdges[numOfNodes - 3, numOfNodes - 1] = newEdge2;
+        Edge newEdge3 = new Edge(numOfNodes - 2, numOfNodes - 1);
+        newEdges[numOfNodes - 2, numOfNodes - 1] = newEdge3;
+
+        numOfDimension += 3;
+
+        outAddedEdge.Add(newEdge1);
+        outAddedEdge.Add(newEdge2);
+        outAddedEdge.Add(newEdge3);
+
+        // replacing with new edges.
+        edges = newEdges;
+
+    }
+
+    void AddEdgesSpawn3Node3Edge1Occupy(List<Edge> outAddedEdge)
+    {
+        Edge[,] newEdges = new Edge[numOfNodes, numOfNodes];
+
+        // copy all edges present in the previous edges.
+        for (int row = 0; row < numOfNodes - 3; row++)
+        {
+            for (int column = 0; column < numOfNodes - 3; column++)
+            {
+                newEdges[row, column] = edges[row, column];
+
+            }
+        }
+
+        Edge newEdge1 = new Edge(numOfNodes - 3, numOfNodes - 2);
+        newEdges[numOfNodes - 3, numOfNodes - 2] = newEdge1;
+        Edge newEdge2 = new Edge(numOfNodes - 3, numOfNodes - 1);
+        newEdges[numOfNodes - 3, numOfNodes - 1] = newEdge2;
+        Edge newEdge3 = new Edge(numOfNodes - 2, numOfNodes - 1);
+        newEdges[numOfNodes - 2, numOfNodes - 1] = newEdge3;
+
+        numOfDimension += 3;
+
+        outAddedEdge.Add(newEdge1);
+        outAddedEdge.Add(newEdge2);
+        outAddedEdge.Add(newEdge3);
+
+        // replacing with new edges.
+        edges = newEdges;
+
+    }
+
+    void AddEdgesSpawn2Node1Edge1Occupy(List<Edge> outAddedEdge)
+    {
+        Edge[,] newEdges = new Edge[numOfNodes, numOfNodes];
+
+        // copy all edges present in the previous edges.
+        for (int row = 0; row < numOfNodes - 2; row++)
+        {
+            for (int column = 0; column < numOfNodes - 2; column++)
+            {
+                newEdges[row, column] = edges[row, column];
+
+            }
+        }
+
+        Edge newEdge = new Edge(numOfNodes - 2, numOfNodes - 1);
+        newEdges[numOfNodes - 2, numOfNodes - 1] = newEdge;
+
+        numOfDimension += 2;
+
+        outAddedEdge.Add(newEdge);
+
+        // replacing with new edges.
+        edges = newEdges;
+    }
+
     void AddEdgesThree(List<Edge> outAddedEdge)
     {
         Edge[,] newEdges = new Edge[numOfNodes, numOfNodes];
@@ -600,7 +951,7 @@ public class Loop
         float x;
         float y;
         int nodeIndex;
-        int nodeValue;
+        type_node_value nodeValue;
 
         foreach (Node node in inAddedNode)
         {
@@ -1035,7 +1386,7 @@ public class Loop
                 Vector2 pos = new Vector2(x, y);
 
                 GameObject nodePrefab = nodes[i].GetNodePrefab();
-                int nodeValue = nodes[i].getNodeValue();
+                type_node_value nodeValue = nodes[i].getNodeValue();
 
 //              newNodes[tmpNewNumOfNodes] = new Node(tmpNewNumOfNodes, pos );
                 newNodes.Add( new Node(tmpNewNumOfNodes, nodeValue, pos ));
@@ -1051,10 +1402,10 @@ public class Loop
         }
 
         // a node prefab corresponding to this instance will be created later in enclosing caller function.
-        int nodeValue1st = nodes[in1stNodeIndex].getNodeValue();
-        int nodeValue2nd = nodes[in2ndNodeIndex].getNodeValue();
-        int newNodeValue = nodeValue1st + nodeValue2nd;
-        if( newNodeValue > 9)
+        type_node_value nodeValue1st = nodes[in1stNodeIndex].getNodeValue();
+        type_node_value nodeValue2nd = nodes[in2ndNodeIndex].getNodeValue();
+        type_node_value newNodeValue = (int)nodeValue1st + nodeValue2nd;
+        if( (int)newNodeValue > 9)
         {
             newNodeValue -= 10;
         }
@@ -1280,7 +1631,7 @@ public class Loop
         //
 
         int newNodeIndex = nodes.Count;
-        Node newNode1 = new Node(newNodeIndex, 1, new Vector2(0.0f, 0.0f), inSpawnInfo);
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_1, new Vector2(0.0f, 0.0f), inSpawnInfo);
         nodes.Add(newNode1);
         numOfNodes += 1;
 
@@ -1301,8 +1652,8 @@ public class Loop
         //
 
         int newNodeIndex = nodes.Count;
-        Node newNode1 = new Node(newNodeIndex    , 1, new Vector2(-1.0f, 0.0f), inSpawnInfo );
-        Node newNode2 = new Node(newNodeIndex + 1, 2, new Vector2(+1.0f, 0.0f), inSpawnInfo );
+        Node newNode1 = new Node(newNodeIndex    , type_node_value.type_node_value_1, new Vector2(-1.0f, 0.0f), inSpawnInfo );
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_2, new Vector2(+1.0f, 0.0f), inSpawnInfo );
         nodes.Add(newNode1);
         nodes.Add(newNode2);
         numOfNodes += 2;
@@ -1326,9 +1677,9 @@ public class Loop
         //
 
         int newNodeIndex = nodes.Count;
-        Node newNode1 = new Node(newNodeIndex,     1, new Vector2(-0.5f,  0.0f), inSpawnInfo);
-        Node newNode2 = new Node(newNodeIndex + 1, 2, new Vector2( 0.0f, +1.0f), inSpawnInfo);
-        Node newNode3 = new Node(newNodeIndex + 2, 3, new Vector2(+0.5f,  0.0f), inSpawnInfo);
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_1, new Vector2(-0.5f,  0.0f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_2, new Vector2( 0.0f, +1.0f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_3, new Vector2(+0.5f,  0.0f), inSpawnInfo);
         nodes.Add(newNode1);
         nodes.Add(newNode2);
         nodes.Add(newNode3);
@@ -1354,9 +1705,9 @@ public class Loop
         //
 
         int newNodeIndex = nodes.Count;
-        Node newNode1 = new Node(newNodeIndex,     1, new Vector2(-0.5f,  0.0f), inSpawnInfo);
-        Node newNode2 = new Node(newNodeIndex + 1, 2, new Vector2( 0.0f, +1.0f), inSpawnInfo);
-        Node newNode3 = new Node(newNodeIndex + 2, 3, new Vector2(+0.5f,  0.0f), inSpawnInfo);
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_1, new Vector2(-0.5f,  0.0f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_2, new Vector2( 0.0f, +1.0f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_3, new Vector2(+0.5f,  0.0f), inSpawnInfo);
         nodes.Add(newNode1);
         nodes.Add(newNode2);
         nodes.Add(newNode3);
@@ -1381,10 +1732,10 @@ public class Loop
         //
 
         int newNodeIndex = nodes.Count;
-        Node newNode1 = new Node(newNodeIndex,     1, new Vector2(-0.5f, -0.5f), inSpawnInfo);
-        Node newNode2 = new Node(newNodeIndex + 1, 2, new Vector2(+0.5f, -0.5f), inSpawnInfo);
-        Node newNode3 = new Node(newNodeIndex + 2, 3, new Vector2(+0.5f, +0.5f), inSpawnInfo);
-        Node newNode4 = new Node(newNodeIndex + 3, 4, new Vector2(-0.5f, +0.5f), inSpawnInfo);
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_1, new Vector2(-0.5f, -0.5f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_2, new Vector2(+0.5f, -0.5f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_3, new Vector2(+0.5f, +0.5f), inSpawnInfo);
+        Node newNode4 = new Node(newNodeIndex + 3, type_node_value.type_node_value_4, new Vector2(-0.5f, +0.5f), inSpawnInfo);
         nodes.Add(newNode1);
         nodes.Add(newNode2);
         nodes.Add(newNode3);
@@ -1411,10 +1762,10 @@ public class Loop
         //
 
         int newNodeIndex = nodes.Count;
-        Node newNode1 = new Node(newNodeIndex    , 1, new Vector2(-0.5f, -0.5f), inSpawnInfo);
-        Node newNode2 = new Node(newNodeIndex + 1, 2, new Vector2(+0.5f, -0.5f), inSpawnInfo);
-        Node newNode3 = new Node(newNodeIndex + 2, 3, new Vector2(+0.5f, +0.5f), inSpawnInfo);
-        Node newNode4 = new Node(newNodeIndex + 3, 4, new Vector2(-0.5f, +0.5f), inSpawnInfo);
+        Node newNode1 = new Node(newNodeIndex    , type_node_value.type_node_value_1, new Vector2(-0.5f, -0.5f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_2, new Vector2(+0.5f, -0.5f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_3, new Vector2(+0.5f, +0.5f), inSpawnInfo);
+        Node newNode4 = new Node(newNodeIndex + 3, type_node_value.type_node_value_4, new Vector2(-0.5f, +0.5f), inSpawnInfo);
         nodes.Add(newNode1);
         nodes.Add(newNode2);
         nodes.Add(newNode3);
@@ -1441,10 +1792,10 @@ public class Loop
         //
 
         int newNodeIndex = nodes.Count;
-        Node newNode1 = new Node(newNodeIndex,     1, new Vector2(-0.5f, -0.5f), inSpawnInfo);
-        Node newNode2 = new Node(newNodeIndex + 1, 2, new Vector2(+0.5f, -0.5f), inSpawnInfo);
-        Node newNode3 = new Node(newNodeIndex + 2, 3, new Vector2(+0.5f, +0.5f), inSpawnInfo);
-        Node newNode4 = new Node(newNodeIndex + 3, 4, new Vector2(-0.5f, +0.5f), inSpawnInfo);
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_1, new Vector2(-0.5f, -0.5f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_2, new Vector2(+0.5f, -0.5f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_3, new Vector2(+0.5f, +0.5f), inSpawnInfo);
+        Node newNode4 = new Node(newNodeIndex + 3, type_node_value.type_node_value_4, new Vector2(-0.5f, +0.5f), inSpawnInfo);
         nodes.Add(newNode1);
         nodes.Add(newNode2);
         nodes.Add(newNode3);
@@ -1462,6 +1813,318 @@ public class Loop
         outAddedNode.Add(newNode2);
         outAddedNode.Add(newNode3);
         outAddedNode.Add(newNode4);
+    }
+
+    public void Spawn4Node6Edge2Occupy(List<Node> outAddedNode, List<Edge> outAddedEdge, SpawnInfo inSpawnInfo)
+    {
+        //
+        // Spawn 4 nodes and 6 edges.
+        //
+
+        int newNodeIndex = nodes.Count;
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_empty, new Vector2(-0.5f, -0.5f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_2, new Vector2(+0.5f, -0.5f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_empty, new Vector2(+0.5f, +0.5f), inSpawnInfo);
+        Node newNode4 = new Node(newNodeIndex + 3, type_node_value.type_node_value_4, new Vector2(-0.5f, +0.5f), inSpawnInfo);
+        nodes.Add(newNode1);
+        nodes.Add(newNode2);
+        nodes.Add(newNode3);
+        nodes.Add(newNode4);
+        numOfNodes += 4;
+
+        AddEdgesSpawn4Node6Edge2Occupy(outAddedEdge);
+
+        //        link = new Link(type_loop.five);
+
+        //      setupEdges(4);
+
+
+        outAddedNode.Add(newNode1);
+        outAddedNode.Add(newNode2);
+        outAddedNode.Add(newNode3);
+        outAddedNode.Add(newNode4);
+    }
+
+    public void Spawn4Node4Edge2Occupy(List<Node> outAddedNode, List<Edge> outAddedEdge, SpawnInfo inSpawnInfo)
+    {
+        //
+        // Spawn 4 nodes and 6 edges.
+        //
+
+        int newNodeIndex = nodes.Count;
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_2, new Vector2(-0.5f, -0.5f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_empty, new Vector2(+0.5f, -0.5f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_4, new Vector2(+0.5f, +0.5f), inSpawnInfo);
+        Node newNode4 = new Node(newNodeIndex + 3, type_node_value.type_node_value_empty, new Vector2(-0.5f, +0.5f), inSpawnInfo);
+        nodes.Add(newNode1);
+        nodes.Add(newNode2);
+        nodes.Add(newNode3);
+        nodes.Add(newNode4);
+        numOfNodes += 4;
+
+        AddEdgesSpawn4Node4Edge2Occupy(outAddedEdge);
+
+        //        link = new Link(type_loop.five);
+
+        //      setupEdges(4);
+
+
+        outAddedNode.Add(newNode1);
+        outAddedNode.Add(newNode2);
+        outAddedNode.Add(newNode3);
+        outAddedNode.Add(newNode4);
+    }
+
+    public void Spawn4Node3Edge3Occupy(List<Node> outAddedNode, List<Edge> outAddedEdge, SpawnInfo inSpawnInfo)
+    {
+        //
+        // Spawn 4 nodes and 6 edges.
+        //
+
+        int newNodeIndex = nodes.Count;
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_1, new Vector2(-0.5f, -0.5f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_2, new Vector2(+0.5f, -0.5f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_3, new Vector2(+0.5f, +0.5f), inSpawnInfo);
+        Node newNode4 = new Node(newNodeIndex + 3, type_node_value.type_node_value_empty, new Vector2(-0.5f, +0.5f), inSpawnInfo);
+        nodes.Add(newNode1);
+        nodes.Add(newNode2);
+        nodes.Add(newNode3);
+        nodes.Add(newNode4);
+        numOfNodes += 4;
+
+        AddEdgesSpawn4Node3Edge3Occupy(outAddedEdge);
+
+        //        link = new Link(type_loop.five);
+
+        //      setupEdges(4);
+
+
+        outAddedNode.Add(newNode1);
+        outAddedNode.Add(newNode2);
+        outAddedNode.Add(newNode3);
+        outAddedNode.Add(newNode4);
+    }
+
+    public void Spawn4Node3Edge2Occupy(List<Node> outAddedNode, List<Edge> outAddedEdge, SpawnInfo inSpawnInfo)
+    {
+        //
+        // Spawn 4 nodes and 3 edges.
+        //
+
+        int newNodeIndex = nodes.Count;
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_1, new Vector2(-0.5f, -0.5f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_empty, new Vector2(+0.5f, -0.5f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_3, new Vector2(+0.5f, +0.5f), inSpawnInfo);
+        Node newNode4 = new Node(newNodeIndex + 3, type_node_value.type_node_value_empty, new Vector2(-0.5f, +0.5f), inSpawnInfo);
+        nodes.Add(newNode1);
+        nodes.Add(newNode2);
+        nodes.Add(newNode3);
+        nodes.Add(newNode4);
+        numOfNodes += 4;
+
+        AddEdgesSpawn4Node3Edge2Occupy(outAddedEdge);
+
+        //        link = new Link(type_loop.five);
+
+        //      setupEdges(4);
+
+
+        outAddedNode.Add(newNode1);
+        outAddedNode.Add(newNode2);
+        outAddedNode.Add(newNode3);
+        outAddedNode.Add(newNode4);
+    }
+
+    public void Spawn4Node3Edge2Occupy1(List<Node> outAddedNode, List<Edge> outAddedEdge, SpawnInfo inSpawnInfo)
+    {
+        //
+        // Spawn 4 nodes and 3 edges.
+        //
+
+        int newNodeIndex = nodes.Count;
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_empty, new Vector2(-0.5f, -0.5f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_1, new Vector2(+0.5f, -0.5f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_empty, new Vector2(+0.5f, +0.5f), inSpawnInfo);
+        Node newNode4 = new Node(newNodeIndex + 3, type_node_value.type_node_value_2, new Vector2(-0.5f, +0.5f), inSpawnInfo);
+        nodes.Add(newNode1);
+        nodes.Add(newNode2);
+        nodes.Add(newNode3);
+        nodes.Add(newNode4);
+        numOfNodes += 4;
+
+        AddEdgesSpawn4Node3Edge2Occupy1(outAddedEdge);
+
+        //        link = new Link(type_loop.five);
+
+        //      setupEdges(4);
+
+
+        outAddedNode.Add(newNode1);
+        outAddedNode.Add(newNode2);
+        outAddedNode.Add(newNode3);
+        outAddedNode.Add(newNode4);
+    }
+
+    public void Spawn4Node3Edge2Occupy2(List<Node> outAddedNode, List<Edge> outAddedEdge, SpawnInfo inSpawnInfo)
+    {
+        //
+        // Spawn 4 nodes and 3 edges.
+        //
+
+        int newNodeIndex = nodes.Count;
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_1, new Vector2(-0.5f, -0.5f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_empty, new Vector2(+0.5f, -0.5f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_3, new Vector2(+0.5f, +0.5f), inSpawnInfo);
+        Node newNode4 = new Node(newNodeIndex + 3, type_node_value.type_node_value_empty, new Vector2(-0.5f, +0.5f), inSpawnInfo);
+        nodes.Add(newNode1);
+        nodes.Add(newNode2);
+        nodes.Add(newNode3);
+        nodes.Add(newNode4);
+        numOfNodes += 4;
+
+        AddEdgesSpawn4Node3Edge2Occupy2(outAddedEdge);
+
+        //        link = new Link(type_loop.five);
+
+        //      setupEdges(4);
+
+
+        outAddedNode.Add(newNode1);
+        outAddedNode.Add(newNode2);
+        outAddedNode.Add(newNode3);
+        outAddedNode.Add(newNode4);
+    }
+
+    public void Spawn3Node2Edge2Occupy(List<Node> outAddedNode, List<Edge> outAddedEdge, SpawnInfo inSpawnInfo)
+    {
+        //
+        // Spawn 3 nodes and 2 edges 2 occupy.
+        //
+
+        int newNodeIndex = nodes.Count;
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_empty, new Vector2(-0.5f, 0.0f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_2, new Vector2(0.0f, +1.0f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_3, new Vector2(+0.5f, 0.0f), inSpawnInfo);
+        nodes.Add(newNode1);
+        nodes.Add(newNode2);
+        nodes.Add(newNode3);
+        numOfNodes += 3;
+
+        AddEdgesSpawn3Node2Edge2Occupy(outAddedEdge);
+
+        //        link = new Link(type_loop.five);
+
+        //      setupEdges(4);
+
+
+        outAddedNode.Add(newNode1);
+        outAddedNode.Add(newNode2);
+        outAddedNode.Add(newNode3);
+    }
+
+    public void Spawn3Node2Edge1Occupy(List<Node> outAddedNode, List<Edge> outAddedEdge, SpawnInfo inSpawnInfo)
+    {
+        //
+        // Spawn 3 nodes and 2 edges 1 occupy.
+        //
+
+        int newNodeIndex = nodes.Count;
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_empty, new Vector2(-0.5f, 0.0f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_1, new Vector2(0.0f, +1.0f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_2, new Vector2(+0.5f, 0.0f), inSpawnInfo);
+        nodes.Add(newNode1);
+        nodes.Add(newNode2);
+        nodes.Add(newNode3);
+        numOfNodes += 3;
+
+        AddEdgesSpawn3Node2Edge1Occupy(outAddedEdge);
+
+        //        link = new Link(type_loop.five);
+
+        //      setupEdges(4);
+
+
+        outAddedNode.Add(newNode1);
+        outAddedNode.Add(newNode2);
+        outAddedNode.Add(newNode3);
+    }
+
+    public void Spawn3Node3Edge2Occupy(List<Node> outAddedNode, List<Edge> outAddedEdge, SpawnInfo inSpawnInfo)
+    {
+        //
+        // Spawn 3 nodes and 3 edges 2 occupy.
+        //
+
+        int newNodeIndex = nodes.Count;
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_empty, new Vector2(-0.5f, 0.0f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_1, new Vector2(0.0f, +1.0f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_2, new Vector2(+0.5f, 0.0f), inSpawnInfo);
+        nodes.Add(newNode1);
+        nodes.Add(newNode2);
+        nodes.Add(newNode3);
+        numOfNodes += 3;
+
+        AddEdgesSpawn3Node3Edge2Occupy(outAddedEdge);
+
+        //        link = new Link(type_loop.five);
+
+        //      setupEdges(4);
+
+
+        outAddedNode.Add(newNode1);
+        outAddedNode.Add(newNode2);
+        outAddedNode.Add(newNode3);
+    }
+
+    public void Spawn3Node3Edge1Occupy(List<Node> outAddedNode, List<Edge> outAddedEdge, SpawnInfo inSpawnInfo)
+    {
+        //
+        // Spawn 3 nodes and 3 edges 1 occupy.
+        //
+
+        int newNodeIndex = nodes.Count;
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_1, new Vector2(-0.5f, 0.0f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_empty, new Vector2(0.0f, +1.0f), inSpawnInfo);
+        Node newNode3 = new Node(newNodeIndex + 2, type_node_value.type_node_value_empty, new Vector2(+0.5f, 0.0f), inSpawnInfo);
+        nodes.Add(newNode1);
+        nodes.Add(newNode2);
+        nodes.Add(newNode3);
+        numOfNodes += 3;
+
+        AddEdgesSpawn3Node3Edge1Occupy(outAddedEdge);
+
+        //        link = new Link(type_loop.five);
+
+        //      setupEdges(4);
+
+
+        outAddedNode.Add(newNode1);
+        outAddedNode.Add(newNode2);
+        outAddedNode.Add(newNode3);
+    }
+
+    public void Spawn2Node1Edge1Occupy(List<Node> outAddedNode, List<Edge> outAddedEdge, SpawnInfo inSpawnInfo)
+    {
+        //
+        // Spawn 2 node and 1 edge 1 occupy.
+        //
+
+        int newNodeIndex = nodes.Count;
+        Node newNode1 = new Node(newNodeIndex, type_node_value.type_node_value_1, new Vector2(-1.0f, 0.0f), inSpawnInfo);
+        Node newNode2 = new Node(newNodeIndex + 1, type_node_value.type_node_value_empty, new Vector2(+1.0f, 0.0f), inSpawnInfo);
+        nodes.Add(newNode1);
+        nodes.Add(newNode2);
+        numOfNodes += 2;
+
+        AddEdgesSpawn2Node1Edge1Occupy(outAddedEdge);
+
+        //        link = new Link(type_loop.five);
+
+        //      setupEdges(4);
+
+
+        outAddedNode.Add(newNode1);
+        outAddedNode.Add(newNode2);
     }
 
     public void InvalidateNodeComponentPosition( int inNodeIndex)

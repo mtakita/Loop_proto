@@ -295,7 +295,10 @@ public class NodeComponent : MonoBehaviour
 
         // combine 2 nodes.(actually delete both and craete new one.)
         List<Edge> outEdgesMerge = new List<Edge>();
+
         int newNodeIndex = loop.combineNodes(nodeIndex, otherIndex, middlePos, outEdgesMerge);
+
+      
 //        Debug.Log("deleted node indecies : " + nodeIndex + "," + otherIndex);
 
 //        DebugOutNumberOfNodeAndEdge();

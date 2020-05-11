@@ -4,9 +4,30 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - number1: {fileID: 21300004, guid: 4e0e5474da5cc674389f5adca07e8e4f, type: 3}
-  - number2: {fileID: 21300006, guid: 4e0e5474da5cc674389f5adca07e8e4f, type: 3}
-  - number3: {fileID: 21300008, guid: 4e0e5474da5cc674389f5adca07e8e4f, type: 3}
+  - nodePrefabNumber0: {fileID: 3198343199817274572, guid: 43d2b46778dea514ba8231ee55967b4c,
+      type: 3}
+  - nodePrefabNumber1: {fileID: 6458054330405823937, guid: 6bd0bcc51a68e4c478fed2daada161ca,
+      type: 3}
+  - nodePrefabNumber2: {fileID: 7312264842584234074, guid: d5e8d0016fc5cd541a063c06c9c83082,
+      type: 3}
+  - nodePrefabNumber3: {fileID: 7574776718851908033, guid: 0281c9ef95c3a2d4f9c7a38e3839a05e,
+      type: 3}
+  - nodePrefabNumber4: {fileID: 2097538457398154512, guid: fefe0ccee352a5b4baa0ba1ac5fe3eaa,
+      type: 3}
+  - nodePrefabNumber5: {fileID: 2960540397358783137, guid: 9f76dd3d8d176b24d87784662d0a89a3,
+      type: 3}
+  - nodePrefabNumber6: {fileID: 118211537125471379, guid: 07f42c9f108ad5d43925efeee4d4ead7,
+      type: 3}
+  - nodePrefabNumber7: {fileID: 3901617503595770482, guid: 6042f6d509e3d4c4d9ca8a9132465bb8,
+      type: 3}
+  - nodePrefabNumber8: {fileID: 2017619139786715417, guid: 88c3aa41b33c970419bd6d3f56c40ead,
+      type: 3}
+  - nodePrefabNumber9: {fileID: 8948837926740724665, guid: 2f1ff786d765d3349ae7040818efd26e,
+      type: 3}
+  - nodePrefabNumberEmpty: {fileID: 7904855968287415221, guid: 740e84ea5967a77428cb59d47ccdd38e,
+      type: 3}
+  - edgePrefab: {fileID: 2688758774274914594, guid: 7b679cfdeb6417648b1c6cb8d0d31fc1,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

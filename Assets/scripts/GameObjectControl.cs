@@ -11,7 +11,33 @@ public enum type_node_edge
     type_3node2edge,
     type_4node3edge,
     type_4node4edge,
-    type_4node5edge
+    type_4node5edge,
+    type_4node6edge2occupy,
+    type_4node4edge2occupy,
+    type_4node3edge3occupy,
+    type_4node3edge2occupy,
+    type_4node3edge2occupy1,
+    type_4node3edge2occupy2,
+    type_3node2edge2occupy,
+    type_3node2edge1occupy,
+    type_3node3edge2occupy,
+    type_3node3edge1occupy,
+    type_2node1edge1occupy,
+};
+
+public enum type_node_value
+{
+    type_node_value_0,
+    type_node_value_1,
+    type_node_value_2,
+    type_node_value_3,
+    type_node_value_4,
+    type_node_value_5,
+    type_node_value_6,
+    type_node_value_7,
+    type_node_value_8,
+    type_node_value_9,
+    type_node_value_empty,
 };
 
 public class GameObjectControl : MonoBehaviour
@@ -74,6 +100,61 @@ public class GameObjectControl : MonoBehaviour
         Spawn(type_node_edge.type_4node5edge);
     }
 
+    public void Spawn4Node6Edge2Occupy()
+    {
+        Spawn(type_node_edge.type_4node6edge2occupy);
+    }
+
+    public void Spawn4Node4Edge2Occupy()
+    {
+        Spawn(type_node_edge.type_4node4edge2occupy);
+    }
+
+    public void Spawn4Node3Edge3Occupy()
+    {
+        Spawn(type_node_edge.type_4node3edge3occupy);
+    }
+
+    public void Spawn4Node3Edge2Occupy()
+    {
+        Spawn(type_node_edge.type_4node3edge2occupy);
+    }
+
+    public void Spawn4Node3Edge2Occupy1()
+    {
+        Spawn(type_node_edge.type_4node3edge2occupy1);
+    }
+
+    public void Spawn4Node3Edge2Occupy2()
+    {
+        Spawn(type_node_edge.type_4node3edge2occupy2);
+    }
+
+    public void Spawn3Node2Edge2Occupy()
+    {
+        Spawn(type_node_edge.type_3node2edge2occupy);
+    }
+
+    public void Spawn3Node2Edge1Occupy()
+    {
+        Spawn(type_node_edge.type_3node2edge1occupy);
+    }
+
+    public void Spawn3Node3Edge2Occupy()
+    {
+        Spawn(type_node_edge.type_3node3edge2occupy);
+    }
+
+    public void Spawn3Node3Edge1Occupy()
+    {
+        Spawn(type_node_edge.type_3node3edge1occupy);
+    }
+
+    public void Spawn2Node1Edge1Occupy()
+    {
+        Spawn(type_node_edge.type_2node1edge1occupy);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -121,6 +202,72 @@ public class GameObjectControl : MonoBehaviour
     {
         LoopComponent lc = loop.GetComponent<LoopComponent>();
         lc.Spawn4Node5Edge(inSpawnInfo);
+    }
+
+    public void Spawn4Node6Edge2Occupy(SpawnInfo inSpawnInfo)
+    {
+        LoopComponent lc = loop.GetComponent<LoopComponent>();
+        lc.Spawn4Node6Edge2Occupy(inSpawnInfo);
+    }
+
+    public void Spawn4Node4Edge2Occupy(SpawnInfo inSpawnInfo)
+    {
+        LoopComponent lc = loop.GetComponent<LoopComponent>();
+        lc.Spawn4Node4Edge2Occupy(inSpawnInfo);
+    }
+
+    public void Spawn4Node3Edge3Occupy(SpawnInfo inSpawnInfo)
+    {
+        LoopComponent lc = loop.GetComponent<LoopComponent>();
+        lc.Spawn4Node3Edge3Occupy(inSpawnInfo);
+    }
+
+    public void Spawn4Node3Edge2Occupy(SpawnInfo inSpawnInfo)
+    {
+        LoopComponent lc = loop.GetComponent<LoopComponent>();
+        lc.Spawn4Node3Edge2Occupy(inSpawnInfo);
+    }
+
+    public void Spawn4Node3Edge2Occupy1(SpawnInfo inSpawnInfo)
+    {
+        LoopComponent lc = loop.GetComponent<LoopComponent>();
+        lc.Spawn4Node3Edge2Occupy1(inSpawnInfo);
+    }
+
+    public void Spawn4Node3Edge2Occupy2(SpawnInfo inSpawnInfo)
+    {
+        LoopComponent lc = loop.GetComponent<LoopComponent>();
+        lc.Spawn4Node3Edge2Occupy2(inSpawnInfo);
+    }
+
+    public void Spawn3Node2Edge2Occupy(SpawnInfo inSpawnInfo)
+    {
+        LoopComponent lc = loop.GetComponent<LoopComponent>();
+        lc.Spawn3Node2Edge2Occupy(inSpawnInfo);
+    }
+
+    public void Spawn3Node2Edge1Occupy(SpawnInfo inSpawnInfo)
+    {
+        LoopComponent lc = loop.GetComponent<LoopComponent>();
+        lc.Spawn3Node2Edge1Occupy(inSpawnInfo);
+    }
+
+    public void Spawn3Node3Edge2Occupy(SpawnInfo inSpawnInfo)
+    {
+        LoopComponent lc = loop.GetComponent<LoopComponent>();
+        lc.Spawn3Node3Edge2Occupy(inSpawnInfo);
+    }
+
+    public void Spawn3Node3Edge1Occupy(SpawnInfo inSpawnInfo)
+    {
+        LoopComponent lc = loop.GetComponent<LoopComponent>();
+        lc.Spawn3Node3Edge1Occupy(inSpawnInfo);
+    }
+
+    public void Spawn2Node1Edge1Occupy(SpawnInfo inSpawnInfo)
+    {
+        LoopComponent lc = loop.GetComponent<LoopComponent>();
+        lc.Spawn2Node1Edge1Occupy(inSpawnInfo);
     }
 
     void Spawn(type_node_edge inType )
@@ -254,6 +401,39 @@ public class GameObjectControl : MonoBehaviour
                     break;
                 case type_node_edge.type_4node5edge:
                     Spawn4Node5Edge(spawnInfo);
+                    break;
+                case type_node_edge.type_4node6edge2occupy:
+                    Spawn4Node6Edge2Occupy(spawnInfo);
+                    break;
+                case type_node_edge.type_4node4edge2occupy:
+                    Spawn4Node4Edge2Occupy(spawnInfo);
+                    break;
+                case type_node_edge.type_4node3edge3occupy:
+                    Spawn4Node3Edge3Occupy(spawnInfo);
+                    break;
+                case type_node_edge.type_4node3edge2occupy:
+                    Spawn4Node3Edge2Occupy(spawnInfo);
+                    break;
+                case type_node_edge.type_4node3edge2occupy1:
+                    Spawn4Node3Edge2Occupy1(spawnInfo);
+                    break;
+                case type_node_edge.type_4node3edge2occupy2:
+                    Spawn4Node3Edge2Occupy2(spawnInfo);
+                    break;
+                case type_node_edge.type_3node2edge2occupy:
+                    Spawn3Node2Edge2Occupy(spawnInfo);
+                    break;
+                case type_node_edge.type_3node2edge1occupy:
+                    Spawn3Node2Edge1Occupy(spawnInfo);
+                    break;
+                case type_node_edge.type_3node3edge2occupy:
+                    Spawn3Node3Edge2Occupy(spawnInfo);
+                    break;
+                case type_node_edge.type_3node3edge1occupy:
+                    Spawn3Node3Edge1Occupy(spawnInfo);
+                    break;
+                case type_node_edge.type_2node1edge1occupy:
+                    Spawn2Node1Edge1Occupy(spawnInfo);
                     break;
 
             }
